@@ -82,7 +82,7 @@ public class IBashDe extends QuoteSite {
                 final StringBuilder quote = new StringBuilder();
                 DOMNode table = getFirstChild(q.getChildren().get(1), 2);
                 final List<DOMNode> rows = table.getChildren();
-                for (int i = 0; i < rows.size() - 1; i++) {
+                for (int i = 0; i < rows.size() - 2; i++) {
                     for (DOMNode td : rows.get(i).getChildren()) {
                         final DOMNode sec = getFirstChild(td, 2);
                         if (sec.getElement() instanceof TextNode) {
