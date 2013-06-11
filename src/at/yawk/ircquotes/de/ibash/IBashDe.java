@@ -81,8 +81,9 @@ public class IBashDe extends QuoteSite {
             try {
                 final StringBuilder quote = new StringBuilder();
                 DOMNode table = getFirstChild(q.getChildren().get(1), 2);
-                for (DOMNode tr : table.getChildren()) {
-                    for (DOMNode td : tr.getChildren()) {
+                final List<DOMNode> rows = table.getChildren();
+                for (int i = 0; i < rows.size() - 1; i++) {
+                    for (DOMNode td : rows.get(i).getChildren()) {
                         final DOMNode sec = getFirstChild(td, 2);
                         if (sec.getElement() instanceof TextNode) {
                             quote.append(((TextNode) sec.getElement()).getUnescapedText(EntityNamespace.HTML_NAMESPACE));
